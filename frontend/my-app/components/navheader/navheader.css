@@ -1,0 +1,12 @@
+.nav-header{
+    display: flex;
+    background-color: blue;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.company-name{
+    font-size: larger;
+    color:white;
+    font-weight: 900;
+}

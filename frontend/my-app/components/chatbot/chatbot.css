@@ -1,0 +1,18 @@
+.chat-box{
+    margin: 300px;
+    background-color: beige;
+    border-radius: 5px;
+    display: grid;
+    grid-column: 1;
+}
+
+
+.chat-message-area{
+    
+    padding: 20px;
+
+}
+
+.user-input{
+    background-color: bisque;
+}
