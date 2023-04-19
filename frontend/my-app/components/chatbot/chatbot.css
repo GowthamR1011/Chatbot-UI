@@ -13,6 +13,11 @@
 
 }
 
+.input-bar{
+    display: grid;
+    grid-column: 2;
+}
 .user-input{
     background-color: bisque;
 }
+
