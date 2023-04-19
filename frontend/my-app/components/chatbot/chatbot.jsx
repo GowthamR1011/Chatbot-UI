@@ -1,6 +1,8 @@
 import { createSignal } from "solid-js"
 import { createStore } from "solid-js/store"
 import "./chatbot.css"
+import UserChat from "./userchat/userchat"
+import AssistantChat from "./assistantchat/assistantchat"
 
 export default function ChatBot(props){
     const [chatMessages,setChatMessages ] = createStore([{
@@ -18,12 +20,17 @@ export default function ChatBot(props){
                 <For each = {chatMessages}>
                     { (chatMessage) =>{
                         const {role,message} = chatMessage;
-                        return (
-                            <div> 
-                                <h4>{role }</h4>
-                                <p>{message}</p>
-                            </div>
-                        )
+                        if (role == "user")
+                        {
+                            return (
+                               <UserChat  role={role} message={message}/>
+                            )
+                        }
+                        else{
+                            return(
+                                <AssistantChat message={message} />
+                            )
+                        }
                     }
 
                     }
