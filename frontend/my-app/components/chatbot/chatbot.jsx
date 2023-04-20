@@ -12,6 +12,14 @@ export default function ChatBot(props){
     function submitChatMessage(){
         setChatMessages([...chatMessages,{role:"user",message:userMessage()}])
         //console.log(chatMessages.role)
+        getReply()
+    }
+
+    function getReply(){
+        fetch("/api/chat",{method:"POST",body:JSON.stringify({title:"Hello"})})
+            .then(() => {
+                console.log("API Call successful")
+            })
     }
 
     return(

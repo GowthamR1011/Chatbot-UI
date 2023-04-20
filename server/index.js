@@ -12,6 +12,12 @@ app.get("/home",function(req,res){
     res.send("Welcome to Home Page")
 });
 
+
+app.post("/api/chat", function(req,res){
+    console.log(req.body)
+})
+
 app.listen(5000,()=>{
     console.log("Listening on Port 5000");
 });
+
