@@ -10,7 +10,7 @@
 .chat-message-area{
     border-radius: 5px;
     padding: 20px;
-
+    background-color: aliceblue;
 }
 
 .input-bar{
