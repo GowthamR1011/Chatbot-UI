@@ -1,12 +1,12 @@
 .nav-header{
     display: flex;
-    background-color: blue;
+    /* background-color: blue; */
     justify-content: center;
     padding-top: 20px;
 }
 
 .company-name{
     font-size: larger;
-    color:white;
+    color:rgb(0, 0, 0);
     font-weight: 900;
 }
