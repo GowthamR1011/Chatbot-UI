@@ -3,6 +3,9 @@ import { createStore } from "solid-js/store"
 import "./chatbot.css"
 import UserChat from "./userchat/userchat"
 import AssistantChat from "./assistantchat/assistantchat"
+import NODE_SERVER  from "../../data/data"
+
+//NODE_SERVER = require("../../data/data")
 
 export default function ChatBot(props){
     const [chatMessages,setChatMessages ] = createStore([{
@@ -37,7 +40,7 @@ export default function ChatBot(props){
     }
 
     async function getFirstReply(chatContent){
-        fetch("/api/newchat",{
+        fetch(NODE_SERVER.newchatAPI,{
             method:"POST",
             headers:{
                 "Content-type": "application/json; charset=UTF-8"
@@ -49,7 +52,7 @@ export default function ChatBot(props){
 
         .then(res => res.json())
         .then(replyObj => {
-            console.log(replyObj.reply)
+            //console.log(replyObj.reply)
             prompt = replyObj.prompt;
             topic = replyObj.topic;
             setChatMessages([...chatMessages,replyObj.reply]);
@@ -64,7 +67,7 @@ export default function ChatBot(props){
     async function getReply(chatContent){
         
         
-        fetch("/api/chat",{
+        fetch("http://localhost:5000/api/chat",{
             method:"POST",
             body:JSON.stringify({
                 queryId:queryId,
@@ -78,7 +81,7 @@ export default function ChatBot(props){
         })
             .then((response) => response.json())
             .then(chatreply => {
-                console.log(chatreply.reply);
+                //console.log(chatreply.reply);
                 prompt = chatreply.prompt;
                 topic = chatreply.topic;
                 setChatMessages([...chatMessages,chatreply.reply]);

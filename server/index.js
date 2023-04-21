@@ -2,13 +2,13 @@ var express = require("express");
 var path = require("path")
 var app = express();
 var bodyParser = require('body-parser');
-
+var CHAT_SERVER = require("./data/data").CHAT_SERVER
 
 
 app.use(express.static(path.join(__dirname,"..","frontend/my-app/dist")))
 app.use(express.urlencoded({extended : true}))
 app.use(bodyParser.json());
-
+console.log(CHAT_SERVER)
 app.get("/home",function(req,res){
 
     res.send("Welcome to Home Page")
@@ -19,7 +19,7 @@ app.post("/api/newchat",function(req,res){
     console.log("New Chat API called")
     queryId = "abc"
 
-    fetch("http://127.0.0.1:8000/newchat",{
+    fetch(CHAT_SERVER.newChatAPI,{
         method:"POST",
         body:JSON.stringify({
             queryId:queryId,
@@ -46,7 +46,7 @@ app.post("/api/chat", function(req,res){
 
         console.log("Request with Query ID: ",req.body.queryId);
 
-        fetch("http://127.0.0.1:8000/chat",{
+        fetch(CHAT_SERVER.chatAPI,{
             method:"POST",
             body:JSON.stringify({
                 queryId:"abc",
