@@ -20,13 +20,19 @@ export default function ChatBot(props){
         let messageHistory = getMessageHistory()
         if(queryId=="")
         {
-            console.log("Calling First Chat API")
+
             getFirstReply(messageHistory)
         }
         else{
-            console.log("Calling Chat API")
+            
             getReply(messageHistory)
         }
+    }
+
+
+    function resetChat(){
+        setChatMessages([{role:"assistant",content:"Hi, I'm Jeevan Chat-Bot. How can I help you today?"}]);
+        queryId = "";
     }
 
 
@@ -114,6 +120,7 @@ export default function ChatBot(props){
             <div className="input-bar">
                 <input className="user-input" type="text" placeholder="Enter your text" onInput={(e)=>setUserMessage(e.target.value)} value={userMessage()}></input>
                 <button className="input-submit-btn" onClick={submitChatMessage}>Submit</button>
+                <button className="input-reset-topic-btn" onClick={resetChat}>Reset Topic</button>
             </div>
         </div>
     )
