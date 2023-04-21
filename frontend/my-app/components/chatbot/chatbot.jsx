@@ -5,27 +5,26 @@ import UserChat from "./userchat/userchat"
 import AssistantChat from "./assistantchat/assistantchat"
 import NODE_SERVER  from "../../data/data"
 
-//NODE_SERVER = require("../../data/data")
 
 export default function ChatBot(props){
     const [chatMessages,setChatMessages ] = createStore([{
         role:"assistant",content:"Hi, I'm Jeevan Chat-Bot. How can I help you today?"}])
     const [userMessage, setUserMessage] = createSignal("")
     const [replyLoading,setReplyLoading] = createSignal(false)
-    var queryId="",prompt="",topic=[];
-        
+    var queryId="";
 
     function submitChatMessage(){
         setChatMessages([...chatMessages,{role:"user",content:userMessage()}])
         setReplyLoading(true);
         setUserMessage("");
         let messageHistory = getMessageHistory()
-
-        if(prompt="")
+        if(queryId=="")
         {
+            console.log("Calling First Chat API")
             getFirstReply(messageHistory)
         }
         else{
+            console.log("Calling Chat API")
             getReply(messageHistory)
         }
     }
@@ -52,9 +51,7 @@ export default function ChatBot(props){
 
         .then(res => res.json())
         .then(replyObj => {
-            //console.log(replyObj.reply)
-            prompt = replyObj.prompt;
-            topic = replyObj.topic;
+            queryId=replyObj.queryId;
             setChatMessages([...chatMessages,replyObj.reply]);
            setReplyLoading(false);
         })
@@ -67,13 +64,12 @@ export default function ChatBot(props){
     async function getReply(chatContent){
         
         
-        fetch("http://localhost:5000/api/chat",{
+        fetch(NODE_SERVER.chatAPI,{
             method:"POST",
             body:JSON.stringify({
                 queryId:queryId,
-                messageHistory:chatContent,
-                prompt:prompt,
-                topic:topic 
+                messageHistory:chatContent
+                
             }),
             headers: {
                 "Content-type": "application/json; charset=UTF-8"
@@ -81,12 +77,10 @@ export default function ChatBot(props){
         })
             .then((response) => response.json())
             .then(chatreply => {
-                //console.log(chatreply.reply);
-                prompt = chatreply.prompt;
-                topic = chatreply.topic;
-                setChatMessages([...chatMessages,chatreply.reply]);
-               setReplyLoading(false);
-            })
+                if(queryId == chatreply.queryId){
+                    setChatMessages([...chatMessages,chatreply.reply]);
+                    setReplyLoading(false);
+    }})
             .catch((err)=>{
                 console.log("Error in Getting Reply from Server for multiple messages",err)
             })
