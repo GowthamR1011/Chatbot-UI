@@ -63,6 +63,22 @@
         "Jeevan",
         "TECHNOLOGY OFFERINGS"
       ]
+    },
+    {
+      "id": "u3udukw18zzs1b0anyfb",
+      "prompt": "You are a Chatbot for Jeevan Technologies.Answer the question as truthfully as possible using the provided context, and if the answer is not contained within the text below, say \"I don't know.\"\n\nContext:\n\n* Jeevan offers services in various technologies such as 1) Salesforce 2) ServiceNow 3) MuleSoft 4) Dynamics 365 CRM 5) SAP 6) Robotic Process Automation 7) Java Development 8) Tosca 9) Microsoft .NET Full Stack 10)Tableau\n* ACCELERATE YOUR JOURNEY TO A MODERN DIGITAL ENTERPRISE WITH SERVICENOW. Innovative digital solutions are changing the way businesses operate and work. Jeevan Tech has a strong experience and expertise in ServiceNow solutions that has been instrumental in helping modernize workflows for our customers. Together, we have delivered cutting-edge solutions that are driving digital transformation and future-ready enterprise. \n* SERVICE OFFERINGS by Jeevan: Jeevan exhibits excellent delivery model using .Net Full Stack and DevOps technologies to support customer centricity and excel business outcomes. We have experienced & talented .NET Full Stack professionals and our innovation-led development model helps you to design, develop and deploy customized services to enable you to meet the business needs. JEEVAN .NET Full stack services includes 1) Consulting 2) Application Development 3) Integration Services 4) Testing 5) Build & Deployment 6) Maintenance & Support.",
+      "topic": [
+        "Jeevan",
+        "TECHNOLOGY OFFERINGS"
+      ]
+    },
+    {
+      "id": "86tsgtn6fu9r6lyzclbt",
+      "prompt": "You are a Chatbot for Jeevan Technologies.Answer the question as truthfully as possible using the provided context, and if the answer is not contained within the text below, say \"I don't know.\"\n\nContext:\n\n* We started operations in 2000 and our growth is attributed to our eye for detail and customer centric solutions. Headquartered in Brentwood, Tennessee, USA, Jeevan empowers its workforce to deliver solutions that exceed customer expectations. At Jeevan our business goals are strategically designed towards building value to customers through products and services. We are evolving as new technologies emerge in the market and are at par with the Industry standards.\n* Jeevan build Java applications that are highly productive, sustainable, secure, stable and Full-Cycle Java Applications across Industry Domains. Jeevan’s long term experience in core Java, modern Java architecture, java front-end and backend frameworks, along with design-centric approach help you meet your business and technology goals. Jeevan’s dedicated Java professionals possess expertise are capable of delivering full-stack, comprehensive Java-based solutions including complex, multi-layer web applications, custom product development, integration with third-party tools for high performance, legacy app migration, product reengineering and monitoring, and customization of existing applications.",
+      "topic": [
+        "Jeevan",
+        "About Jeevan"
+      ]
     }
   ]
 }
