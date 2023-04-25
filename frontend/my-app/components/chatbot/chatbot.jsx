@@ -118,7 +118,7 @@ export default function ChatBot(props){
                 </Show>
             </div>
             <div className="input-bar">
-                <input className="user-input" type="text" placeholder="Enter your text" onInput={(e)=>setUserMessage(e.target.value)} value={userMessage()}></input>
+                <input className="user-input fa-solid fa-paper-plane" type="text" placeholder="Enter your text" onInput={(e)=>setUserMessage(e.target.value)} value={userMessage()}></input>
                 <button className="input-submit-btn" onClick={submitChatMessage}>Submit</button>
                 <button className="input-reset-topic-btn" onClick={resetChat}>Reset Topic</button>
             </div>
