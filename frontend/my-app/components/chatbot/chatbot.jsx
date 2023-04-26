@@ -4,7 +4,7 @@ import "./chatbot.css"
 import UserChat from "./userchat/userchat"
 import AssistantChat from "./assistantchat/assistantchat"
 import NODE_SERVER  from "../../data/data"
-
+import sendBtn from "../../src/assets/send-btn.jpg"
 
 export default function ChatBot(props){
     const [chatMessages,setChatMessages ] = createStore([{
@@ -116,11 +116,14 @@ export default function ChatBot(props){
                 <Show when={replyLoading()}>
                     <p>....</p>
                 </Show>
+                 
             </div>
+            
             <div className="input-bar">
-                <input className="user-input fa-solid fa-paper-plane" type="text" placeholder="Enter your text" onInput={(e)=>setUserMessage(e.target.value)} value={userMessage()}></input>
-                <button className="input-submit-btn" onClick={submitChatMessage}>Submit</button>
+                <input className="user-input fa-solid fa-paper-plane" onKeyPress={(e) => { if (e.key === "Enter") {submitChatMessage()}}} type="text" placeholder="Enter your text" onInput={(e)=>setUserMessage(e.target.value)} value={userMessage()}></input>
+                <button className="input-submit-btn" type="submit" onClick={submitChatMessage}><img src={sendBtn} className ="send-btn-img" alt="Send"></img></button>
                 <button className="input-reset-topic-btn" onClick={resetChat}>Reset Topic</button>
+                
             </div>
         </div>
     )

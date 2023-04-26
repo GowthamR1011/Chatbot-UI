@@ -9,8 +9,6 @@ function App() {
     <div class={styles.App}>
   
       <NavHeader />
-      {/* <UserForm /> */}
-       {/* <h1>Welcome</h1> */}
        <ChatBot />
     </div>
   );

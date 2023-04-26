@@ -1,0 +1,14 @@
+.assistant-chat-message{
+    margin-right: 30rem;
+    border-radius: 15px;
+    width: 20rem;
+    margin-left: 5rem;
+    background-color: #75d0ec;
+    padding-left : 25px;
+    padding-right: 25px;
+    padding-bottom: 2px;
+}
+
+.user-message-header{
+    text-transform: capitalize;
+}

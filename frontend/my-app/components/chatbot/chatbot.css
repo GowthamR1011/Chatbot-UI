@@ -4,37 +4,61 @@
 
 .chat-box{
 
-    /* margin: 300px; */
-    /* background-color: beige;
-    border-radius: 5px;
-    display: grid;
-    grid-column: 3; */
     display: flex;
     flex-direction: column;
-    background-color: #ffffff;
-    border-radius: 30px;
+    background-color: honeydew;
+    border-radius: 20px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
-    height: 800px;
-    width: 600px;
-    max-height: 90%;
+    margin: 10rem;
+   /* width: 70%; */
+   max-height: 600px;
+    
 }
 
 
 .chat-message-area{
-    border-radius: 5px;
+    border-radius: 20px;
     padding: 20px;
-    background-color: aliceblue;
+
+    /* background-color: whitesmoke; */
     grid-column-start: 1;
     grid-column-end: 3;
+    overflow-y: scroll;
+   overflow-anchor: none;
 }
+
+.chat-message-area::-webkit-scrollbar{
+    display: none;
+}
+
 
 .input-bar{
     border-radius: 5px;
     grid-row: 2;
+    overflow-x:hidden;
+    overflow: hidden;
+    /* position: relative; */
 }
 
 .user-input{
-    
+    width: 60%;
     background-color: bisque;
+    /* position: absolute; */
 }
 
+.input-submit-btn{
+    border-radius: 5px;
+    /* height: 5px; */
+    /* background-image: url(../../src/assets/send-btn.jpg); */
+    /* background-size: cover; */
+}
+.input-reset-topic-btn{
+    border-radius: 5px;
+}
+
+.send-btn-img{
+    
+    height: 12px;
+    width: 25px;
+    padding: 0px;
+} 

@@ -55,14 +55,15 @@ app.post("/api/newchat",function(req,res){
             console.log("POST REQUEST Successful")
             res.send({queryId:newid,
                 reply:newMessage.reply
-            })})
+            }).status(200)
+        })
          .catch(err => {console.log("Chat Database Server Error",err)})
     })
 
 
     .catch(err => {
         console.log(err)
-        res.send("Chat Server Error",err)
+        res.send("Chat Server Error",err).status(404)
     })
 
 })
@@ -100,7 +101,7 @@ app.post("/api/chat", async function(req,res){
                     queryId:req.body.queryId,
                     reply:newMessage.reply
 
-                }))    
+                })).status(200)    
             })
             .catch(err => {
                 console.log(err)

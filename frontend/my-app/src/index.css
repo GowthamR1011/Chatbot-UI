@@ -9,9 +9,25 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+ 
+}
+
+
+html, body, #app, #app>div {
+  height: 100%
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#root{
+  height: 100%;
+  width: 100%;
+  background-image: url(../src/assets/JeevanBackground.png);
+  /* background-position: fixed; */
+  background-size: cover;
+
+
 }
