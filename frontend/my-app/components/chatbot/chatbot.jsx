@@ -1,4 +1,4 @@
-import { Show, createSignal } from "solid-js"
+import { Show, createEffect, createSignal } from "solid-js"
 import { createStore } from "solid-js/store"
 import "./chatbot.css"
 import UserChat from "./userchat/userchat"
@@ -9,9 +9,22 @@ import sendBtn from "../../src/assets/send-btn.jpg"
 export default function ChatBot(props){
     const [chatMessages,setChatMessages ] = createStore([{
         role:"assistant",content:"Hi, I'm Jeevan Chat-Bot. How can I help you today?"}])
+
+
+     createEffect(()=> {
+        if(userMessage().length == 0){
+            document.getElementById("msg-submit-btn").disabled = true;
+        }
+        else{
+            document.getElementById("msg-submit-btn").disabled=false;
+        }
+
+     })   
     const [userMessage, setUserMessage] = createSignal("")
     const [replyLoading,setReplyLoading] = createSignal(false)
     var queryId="";
+
+
 
     function submitChatMessage(){
         setChatMessages([...chatMessages,{role:"user",content:userMessage()}])
@@ -121,7 +134,7 @@ export default function ChatBot(props){
             
             <div className="input-bar">
                 <input className="user-input fa-solid fa-paper-plane" onKeyPress={(e) => { if (e.key === "Enter") {submitChatMessage()}}} type="text" placeholder="Enter your text" onInput={(e)=>setUserMessage(e.target.value)} value={userMessage()}></input>
-                <button className="input-submit-btn" type="submit" onClick={submitChatMessage}><img src={sendBtn} className ="send-btn-img" alt="Send"></img></button>
+                <button id="msg-submit-btn" className="input-submit-btn" type="submit" onClick={submitChatMessage} ><img src={sendBtn} className ="send-btn-img" alt="Send"></img></button>
                 <button className="input-reset-topic-btn" onClick={resetChat}>Reset Topic</button>
                 
             </div>
